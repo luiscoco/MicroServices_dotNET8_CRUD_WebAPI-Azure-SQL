@@ -10,6 +10,24 @@ Select SQL databases and press **Create** button
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/dd4e2bc2-b4fa-4478-873b-2a103a04351d)
 
+We set the database name and we create a SQL Server
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/d5ac3726-1052-4680-8257-531c771d8727)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/979ecb7d-59c5-4eb0-9182-ef0c1fd56182)
+
+
+We create SQL Server
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/a95e203c-d8ab-4eaa-9bc4-dddc348fab51)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/be32d9d5-fbfc-4538-ae87-2339563d813a)
+
+We configure the database engine CPUs and Memory
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/7671eab3-e1a9-46dc-98ee-304c26f68d25)
+
+
 
 ## 2. Create .NET8 WebAPI CRUD Microservice
 
