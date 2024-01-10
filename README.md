@@ -16,7 +16,6 @@ We set the database name and we create a SQL Server
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/979ecb7d-59c5-4eb0-9182-ef0c1fd56182)
 
-
 We create SQL Server
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/a95e203c-d8ab-4eaa-9bc4-dddc348fab51)
@@ -26,6 +25,8 @@ We create SQL Server
 We configure the database engine CPUs and Memory
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/7671eab3-e1a9-46dc-98ee-304c26f68d25)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/6dcc6738-6917-45c0-a8eb-04382623585e)
 
 
 
