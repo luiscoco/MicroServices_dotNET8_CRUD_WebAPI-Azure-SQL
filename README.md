@@ -398,12 +398,8 @@ dotnet ef database update
 
 ## 4. Verify application
 
+https://localhost:7217/swagger/index.html
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/d7510f3c-8998-4e6b-b4ae-8b07c3679727)
 
-
-
-
-
-
-
-
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/505699e3-a916-4666-b235-c7a4e0251763)
