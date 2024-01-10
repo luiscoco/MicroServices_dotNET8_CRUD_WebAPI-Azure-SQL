@@ -65,31 +65,237 @@ app.Run();
 
 ### 2.3. Models (ExampleModel.cs)
 
+**ExampleModel.cs**
 
-
+```csharp
+namespace AzureSQLWebAPIMicroservice.Models
+{
+    public class ExampleModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public DateTime CreatedDate { get; set; }
+    }
+}
+```
 
 ### 2.4. Service (ExampleModelService.cs)
 
+**ExampleModelService.cs**
 
+```csharp
+using AzureSQLWebAPIMicroservice.Data;
+using AzureSQLWebAPIMicroservice.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
+namespace AzureSQLWebAPIMicroservice.Services
+{
+    public class ExampleModelService
+    {
+        private readonly ExampleDbContext _context;
+
+        public ExampleModelService(ExampleDbContext context)
+        {
+            _context = context;
+        }
+
+        // Create
+        public async Task<ExampleModel> AddExampleModel(ExampleModel model)
+        {
+            _context.ExampleModels.Add(model);
+            await _context.SaveChangesAsync();
+            return model;
+        }
+
+        // Read all
+        public async Task<List<ExampleModel>> GetAllExampleModels()
+        {
+            return await _context.ExampleModels.ToListAsync();
+        }
+
+        // Read by ID
+        public async Task<ExampleModel> GetExampleModelById(int id)
+        {
+            return await _context.ExampleModels.FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+        // Update
+        public async Task<ExampleModel> UpdateExampleModel(int id, ExampleModel model)
+        {
+            var existingModel = await _context.ExampleModels.FirstOrDefaultAsync(e => e.Id == id);
+            if (existingModel == null)
+            {
+                return null;
+            }
+
+            existingModel.Name = model.Name;
+            // Update other properties as necessary
+
+            _context.Entry(existingModel).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return existingModel;
+        }
+
+        // Delete
+        public async Task<bool> DeleteExampleModel(int id)
+        {
+            var model = await _context.ExampleModels.FindAsync(id);
+            if (model == null)
+            {
+                return false;
+            }
+
+            _context.ExampleModels.Remove(model);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+    }
+}
+```
 
 ### 2.5. Data (ExampleDbContext.cs)
 
+**ExampleDbContext.cs**
 
+```csharp
+using Microsoft.EntityFrameworkCore;
+using AzureSQLWebAPIMicroservice.Models;
 
+namespace AzureSQLWebAPIMicroservice.Data
+{
+    public class ExampleDbContext:DbContext
+    {
+        public ExampleDbContext(DbContextOptions<ExampleDbContext> options)
+        : base(options)
+        {
+        }
 
+        public DbSet<ExampleModel> ExampleModels { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configure the primary key for ExampleModel
+            modelBuilder.Entity<ExampleModel>().HasKey(e => e.Id);
+
+            // Configure some properties with more details
+            modelBuilder.Entity<ExampleModel>()
+                .Property(e => e.Name)
+                .IsRequired() // Makes the Name field required
+                .HasMaxLength(100); // Sets maximum length of the Name field to 100 characters
+
+            modelBuilder.Entity<ExampleModel>()
+                .Property(e => e.Description)
+                .HasMaxLength(255); // Sets maximum length of the Description field to 255 characters
+
+            // Set a default value for the CreatedDate field
+            modelBuilder.Entity<ExampleModel>()
+                .Property(e => e.CreatedDate)
+                .HasDefaultValueSql("GETDATE()"); // This will use the SQL Server GETDATE() function to set the default value
+
+            // Seed data
+            modelBuilder.Entity<ExampleModel>().HasData(
+                new ExampleModel { Id = 1, Name = "Sample Name 1", Description = "Sample Description 1", CreatedDate = DateTime.Now },
+                new ExampleModel { Id = 2, Name = "Sample Name 2", Description = "Sample Description 2", CreatedDate = DateTime.Now }
+                // Add more seed data as needed
+            );
+        }
+    }
+}
+```
 
 
 ### 2.6. Controllers (ExampleModelsController.cs)
 
+**ExampleModelsController.cs**
 
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using AzureSQLWebAPIMicroservice.Models;
+using AzureSQLWebAPIMicroservice.Services;
+using System.Threading.Tasks;
 
+namespace AzureSQLWebAPIMicroservice.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ExampleModelsController : ControllerBase
+    {
+        private readonly ExampleModelService _service;
 
+        public ExampleModelsController(ExampleModelService service)
+        {
+            _service = service;
+        }
 
+        // POST: api/ExampleModels
+        [HttpPost]
+        public async Task<ActionResult<ExampleModel>> PostExampleModel(ExampleModel model)
+        {
+            var createdModel = await _service.AddExampleModel(model);
+            return CreatedAtAction(nameof(GetExampleModel), new { id = createdModel.Id }, createdModel);
+        }
 
+        // GET: api/ExampleModels
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ExampleModel>>> GetExampleModels()
+        {
+            return await _service.GetAllExampleModels();
+        }
 
+        // GET: api/ExampleModels/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ExampleModel>> GetExampleModel(int id)
+        {
+            var model = await _service.GetExampleModelById(id);
 
+            if (model == null)
+            {
+                return NotFound();
+            }
 
+            return model;
+        }
+
+        // PUT: api/ExampleModels/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutExampleModel(int id, ExampleModel model)
+        {
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+
+            var updatedModel = await _service.UpdateExampleModel(id, model);
+
+            if (updatedModel == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
+        // DELETE: api/ExampleModels/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteExampleModel(int id)
+        {
+            var success = await _service.DeleteExampleModel(id);
+
+            if (!success)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+    }
+}
+```
 
 **IMPORTANT**: 
 
