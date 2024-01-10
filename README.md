@@ -28,6 +28,8 @@ We configure the database engine CPUs and Memory
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/6dcc6738-6917-45c0-a8eb-04382623585e)
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/1dfd45ca-7ce8-47a3-9b2c-74131a216cba)
+
 
 
 ## 2. Create .NET8 WebAPI CRUD Microservice
