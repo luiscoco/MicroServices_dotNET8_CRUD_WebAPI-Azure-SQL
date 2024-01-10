@@ -50,6 +50,10 @@ We also enter in the SQL Server and add the FireWall rules
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/0bd300af-20ea-49ad-bb4b-604d131c8e9d)
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/c501ff54-2296-4d70-9d6d-6c08f352a581)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/efbcfaef-e2a5-4f11-b7d4-be7733063575)
+
 
 ## 2. Create .NET8 WebAPI CRUD Microservice
 
