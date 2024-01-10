@@ -2,7 +2,13 @@
 
 ## 1. Create Azure SQL 
 
+Create Azure SQL service:
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/59c10a31-802c-47bd-97bf-5f36000a1b61)
+
+Select SQL databases and press Create button
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/dd4e2bc2-b4fa-4478-873b-2a103a04351d)
 
 
 ## 2. Create .NET8 WebAPI CRUD Microservice
