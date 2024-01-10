@@ -44,7 +44,12 @@ Do not forget to set the Server Password in the connection string
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/5c25a311-28c9-46f8-8321-ae7f07d8191b)
 
-We also 
+We also enter in the SQL Server and add the FireWall rules
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/441f4744-efbc-4ea0-a97a-3aa724418ac5)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/0bd300af-20ea-49ad-bb4b-604d131c8e9d)
+
 
 ## 2. Create .NET8 WebAPI CRUD Microservice
 
