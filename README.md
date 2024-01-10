@@ -30,7 +30,21 @@ We configure the database engine CPUs and Memory
 
 ![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/1dfd45ca-7ce8-47a3-9b2c-74131a216cba)
 
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/ac93019f-e247-4ec6-9f5e-37cd38677cf4)
 
+**IMPORTANT**: 
+
+We copy the connection string to the appsettings.json file
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/6c2d57a6-ac32-4f4a-b579-cc2777cb8115)
+
+Do not forget to set the Server Password in the connection string
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/fba0c7c1-9860-4aae-95f8-fa7049da70e8)
+
+![image](https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/5c25a311-28c9-46f8-8321-ae7f07d8191b)
+
+We also 
 
 ## 2. Create .NET8 WebAPI CRUD Microservice
 
